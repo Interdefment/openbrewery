@@ -80,4 +80,10 @@ def download_data(request):
     for brewery in breweries:
         helpers.create_brewery(brewery)
 
-    return render(request, 'breweries/index.html')
+    return render(request, 'breweries/request_completed.html')
+
+
+def create_types(request):
+    helpers.create_brewery_types()
+
+    return render(request, 'breweries/request_completed.html')

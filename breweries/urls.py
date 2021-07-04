@@ -6,6 +6,7 @@ from . import views
 app_name = 'breweries'
 
 urlpatterns = [
+    path('recreate_types/', views.create_types, name='create_types'),
     path('download_data/', views.download_data, name='download_data'),
     path('brewery/add', views.BreweriesCreateView.as_view(), name='create'),
     path('brewery/<int:pk>/edit', views.BreweriesUpdateView.as_view(), name='edit'),
