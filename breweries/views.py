@@ -76,11 +76,19 @@ def download_data(request):
     except OpenBreweryException:
         return HttpResponseServerError('Not today')
 
+    not_created_breweries = []
 
     for brewery in breweries:
-        helpers.create_brewery(brewery)
+        try:
+            helpers.create_brewery(brewery)
+        except:
+            not_created_breweries.append(brewery['name'])
 
-    return render(request, 'breweries/request_completed.html')
+    context = {
+        'not_created_breweries': not_created_breweries
+    }
+
+    return render(request, 'breweries/request_completed.html', context)
 
 
 def create_types(request):

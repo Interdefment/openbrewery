@@ -5,6 +5,13 @@
 	<div class="row">
 		<div class="col-12">
 			<p>Your request is completed, Fellow!</p>
+
+			{% if not_created_breweries %}
+				<p>Failed to create following breweries:</p>
+				{% for brewery in not_created_breweries %}
+					<p>{{ brewery }}</p>
+				{% endfor %}
+			{% endif %}
 		</div>
 	</div>
 </div>
