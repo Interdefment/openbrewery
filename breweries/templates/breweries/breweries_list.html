@@ -1,0 +1,27 @@
+{% extends 'breweries/base.html' %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			{% for brewery in object_list %}
+				<div class="col-12">
+
+					<div class="card mb-4">
+						<div class="card-body">
+							<h5 class="card-title">
+								<a href="{% url 'breweries:detail' brewery.pk %}">{{ brewery.name }}</a>
+							</h5>
+							<p class="card-text">City: {{ brewery.city }}</p>
+							{% if brewery.website_url %}
+								<p>
+									Website: <a href="{{ brewery.website_url }}" target="_blank">{{ brewery.website_url }}</a>
+								</p>
+							{% endif %}
+						</div>
+					</div>
+
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+*.env
+*.sqlite3
+*.egg-info
+*.pot
+*.py[co]
+__pycache__/
+
+.pytest_cache
+venv
+migrations

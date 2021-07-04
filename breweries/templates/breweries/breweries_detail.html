@@ -1,0 +1,39 @@
+{% extends 'breweries/base.html' %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">{{ object.name }}</h5>
+						<p class="card-text">Type: {{ object.brewery_type }}</p>
+						<p class="card-text">City: {{ object.city }}</p>
+						{% if object.state %}
+							<p class="card-text">State: {{ object.state }}</p>
+						{% endif %}
+						<p class="card-text">Country: {{ object.country }}</p>
+						{% if object.phone %}
+							<p class="card-text">Phone: {{ object.phone }}</p>
+						{% endif %}
+						<p class="card-text">Updated: {{ object.updated_at }}</p>
+						<p class="card-text">Created: {{ object.created_at }}</p>
+						{% if object.website_url %}
+							<p>
+								Website:&nbsp;
+								<a
+									href="{{ object.website_url }}"
+									rel="noreferrer noopenner"
+									target="_blank">
+									{{ object.website_url }}
+								</a>
+							</p>
+						{% endif %}
+						<a href="{% url 'breweries:edit' object.id %}" class="btn btn-primary">Edit</a>
+						<a href="{% url 'breweries:delete' object.id %}" class="btn btn-danger">Delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
