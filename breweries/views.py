@@ -18,7 +18,7 @@ class HomeView(TemplateView):
 
 class BreweriesListView(ListView):
     model = Breweries
-    paginate_by = 20
+    paginate_by = 5
 
 
 class BreweriesDetailView(DetailView):
