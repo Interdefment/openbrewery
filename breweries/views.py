@@ -12,10 +12,6 @@ from .models import Breweries
 from breweries.openbrewerydb import OpenBreweryAPI, OpenBreweryException
 
 
-class HomeView(TemplateView):
-    template_name = 'breweries/index.html'
-
-
 class BreweriesListView(ListView):
     model = Breweries
     paginate_by = 5
